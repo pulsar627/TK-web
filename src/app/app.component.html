@@ -1,0 +1,46 @@
+<div class="toolbar" role="banner">
+    <img src="../assets/TEK-hd-1.png"  alt="Tek Ninjas" class="default-logo lazyloaded" >
+      <h3 style="padding-left:40px">Jobs Portal</h3>
+    <div class="spacer"></div>
+  </div>
+<div>
+<div class="content" role="main">
+    <h6 style="color:red">{{ErrorMsg}}</h6>
+<p-table #dt [columns]="cols" [value]="jobs" [lazy]="true" (onLazyLoad)="loadJobsLazy($event)" [paginator]="true" 
+    [rows]="20" [totalRecords]="totalRecords" [loading]="loading"
+    selectionMode="single" [(selection)]="selectedJob" [resizableColumns]="true"
+    (onRowSelect)="onRowSelect($event)">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+        <tr>
+            <th *ngFor="let col of columns">
+                <input pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')">
+             </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td>{{rowData.id}}</td>
+            <td>{{rowData.jobTitle}}</td>
+            <td [ngClass]="getClassByValue(rowData.appliedBy)">{{rowData.jobUrl}}</td>
+            <td>{{rowData.postedBy}}</td>
+            <td>{{rowData.appliedBy}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-dialog header="Did you submit?" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [closable]="true" [style]="{'width':'300px'}">
+    <div class="ui-g ui-fluid" *ngIf="job">
+        <div class="ui-g-4"><label for="vin">Applied By</label></div>
+        <div class="ui-g-8"><input pInputText id="vin" placeholder="LastName, FirstName" [(ngModel)]="job.appliedBy" /></div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="pi pi-check" (click)="save()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+</div>

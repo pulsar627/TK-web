@@ -1,0 +1,101 @@
+.url-enabled{
+    color: #00278e
+}
+.url-disabled{
+    color: #6c00a2
+}
+:host {
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 600;
+    box-shadow: 0 2px 3px rgba(0,0,0,.1);
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+   .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+  input{
+      width: 100%;
+  }
+  /* .ui-state-highlight,
+  .ui-button:enabled:active,
+  .ui-button,
+  .ui-button:enabled:hover
+  {
+    background-color: #fd6d26a6 !important;
+    border-color:#fd6d26a6 ;
+  }
+  body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+    background-color: #fd6d26a6 !important;
+    color: #ffffff;
+  }
+  body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+    background-color: #fd6d26a6 !important;
+    color: #ffffff;
+  } */
+  @media screen and (min-width: 900px) {
+    img{
+        widows: 15%
+    }
+  }
+  @media screen and (max-width: 767px) {
+    img{
+        widows: 20%
+    }
+  }
+  @media screen and (max-width: 575px) {
+    img{
+        width:35%
+    }
+  }
